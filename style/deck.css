@@ -1,23 +1,39 @@
 .container #deck-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 33%;
-
-  /* !we can change to grid also */
-  /* display: grid; */
-  /* grid-template-columns: repeat(4, 1fr); */
+  display: grid;
   /* grid-template-columns: repeat(4, 1fr); */
   margin: auto;
   width: 75%;
   gap: 1rem;
+  border: solid 1px black;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.easy-lvl {
+  /* 12 */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.normal-lvl {
+  /* 16 */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.hard-lvl {
+  /* 20 */
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
 .container #deck-container > * {
   border: 2px solid black;
   width: 8rem;
-  height: 12rem;
+  height: 10rem;
   margin: auto;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+.back-card {
+  background-color: aqua;
 }

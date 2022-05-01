@@ -8,4 +8,4 @@ const timer = setInterval(() => {
 }, 1000);
 
 // reload every new game
-createGameBoard(deckContainerElement, "easy");
+createGameBoard(deckContainerElement, "normal");

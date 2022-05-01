@@ -8,7 +8,6 @@ const levelObj = {
   easy: 12,
   normal: 16,
   hard: 20,
-  ninja: 30,
 };
 
 export const deckObj = {
@@ -47,25 +46,32 @@ function shuffleArray(array) {
   for (let i = 0; i < array.length; i++) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
-    // console.log(j, array);
   }
 }
-// const deckContainerElement = document.getElementById("deck-container");
 
+// DOM : create card divs into card contianer
 function creatElementOnGameBoard(deckArr, deckContainerElement) {
-  // const x = document.querySelector("#deck-container");
   for (let img of deckArr) {
     const card = document.createElement("div");
     card.style.backgroundImage = `url(${deckObj[img]})`;
-    // console.log(deckContainerElement);
+    card.classList.add("back-card");
     deckContainerElement.appendChild(card);
   }
 }
 
+// Change container class in order to store different amount of cards by game - level
+function addContainerToClassByLevel(deckContainerElement, level) {
+  if (levelObj[level] === 12) deckContainerElement.classList.add("easy-lvl");
+  else if (levelObj[level] === 16) deckContainerElement.classList.add("normal-lvl");
+  else if (levelObj[level] === 20) deckContainerElemedeckContainerElement.classList.add("back-card");
+}
+
+// todo : add remove from classlist function when restart game
+
 // new game start
 export function createGameBoard(deckContainerElement, level) {
   const arrOfdeck = Object.keys(deckObj);
-
+  addContainerToClassByLevel(deckContainerElement, level);
   shuffleArray(arrOfdeck);
   const newArrOfDeck = sliceArrayToLevelAndDoube(level, arrOfdeck);
   shuffleArray(newArrOfDeck);
