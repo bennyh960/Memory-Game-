@@ -1,0 +1,25 @@
+/* !Dont modified */
+.container #display-window {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  height: 25%;
+  margin: auto;
+  border: 3px solid black;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container #display-window > * {
+  display: flex;
+  flex-direction: column;
+  height: 4rem;
+  text-align: center;
+}
+
+.container #display-window > * > .big {
+  font-size: 3.5rem;
+}
+.container #display-window > * > .small {
+  color: rgb(187, 187, 187);
+}

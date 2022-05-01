@@ -1,0 +1,19 @@
+.container #deck-container {
+  /* display: flex;
+  flex-wrap: wrap;
+  width: 33%; */
+
+  /* !we can change to grid also */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin: auto;
+  border: 3px solid black;
+  gap: 5px;
+}
+
+.container #deck-container > * {
+  border: 2px solid black;
+  width: 8rem;
+  height: 12rem;
+}
