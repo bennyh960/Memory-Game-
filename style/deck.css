@@ -1,19 +1,23 @@
 .container #deck-container {
-  /* display: flex;
+  display: flex;
   flex-wrap: wrap;
-  width: 33%; */
+  width: 33%;
 
   /* !we can change to grid also */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-columns: repeat(4, 1fr); */
   margin: auto;
-  border: 3px solid black;
-  gap: 5px;
+  width: 75%;
+  gap: 1rem;
 }
 
 .container #deck-container > * {
   border: 2px solid black;
   width: 8rem;
   height: 12rem;
+  margin: auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }

@@ -15,6 +15,7 @@
   flex-direction: column;
   height: 4rem;
   text-align: center;
+  /* border: 1px solid black; */
 }
 
 .container #display-window > * > .big {
