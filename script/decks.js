@@ -11,7 +11,7 @@ const levelObj = {
 };
 
 export const deckObj = {
-  1: "../images/1.png",
+  1: "../images/24.png",
   2: "../images/2.png",
   3: "../images/3.png",
   4: "../images/4.png",
@@ -34,7 +34,7 @@ export const deckObj = {
   21: "../images/21.png",
   22: "../images/22.png",
   23: "../images/23.png",
-  24: "../images/24.png",
+  //   24: "../images/24.png",
 };
 
 function sliceArrayToLevelAndDoube(level, arr) {
@@ -51,11 +51,20 @@ function shuffleArray(array) {
 
 // DOM : create card divs into card contianer
 function creatElementOnGameBoard(deckArr, deckContainerElement) {
-  for (let img of deckArr) {
-    const card = document.createElement("div");
-    card.style.backgroundImage = `url(${deckObj[img]})`;
-    card.classList.add("back-card");
-    deckContainerElement.appendChild(card);
+  for (let idx of deckArr) {
+    const flipcardConainer = document.createElement("div");
+    const cardConainer = document.createElement("div");
+    const cardFront = document.createElement("div");
+    const cardBack = document.createElement("div");
+    flipcardConainer.classList.add("flip-card-container-one-card");
+    deckContainerElement.appendChild(flipcardConainer);
+    cardConainer.classList.add("container-card");
+    flipcardConainer.appendChild(cardConainer);
+    cardFront.classList.add("front-card");
+    cardBack.classList.add("back-card");
+    cardConainer.appendChild(cardFront);
+    cardConainer.appendChild(cardBack);
+    cardBack.style.backgroundImage = `url(${deckObj[idx]})`;
   }
 }
 
@@ -77,3 +86,5 @@ export function createGameBoard(deckContainerElement, level) {
   shuffleArray(newArrOfDeck);
   creatElementOnGameBoard(newArrOfDeck, deckContainerElement);
 }
+
+//DOM: Create card-container to contain front-card and back-card
