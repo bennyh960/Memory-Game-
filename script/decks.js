@@ -11,29 +11,29 @@ const levelObj = {
 };
 
 export const deckObj = {
-  1: "../images/24.png",
-  2: "../images/2.png",
-  3: "../images/3.png",
-  4: "../images/4.png",
-  5: "../images/5.png",
-  6: "../images/6.png",
-  7: "../images/7.png",
-  8: "../images/8.png",
-  9: "../images/9.png",
-  10: "../images/10.png",
-  11: "../images/11.png",
-  12: "../images/12.png",
-  13: "../images/13.png",
-  14: "../images/14.png",
-  15: "../images/15.png",
-  16: "../images/16.png",
-  17: "../images/17.png",
-  18: "../images/18.png",
-  19: "../images/19.png",
-  20: "../images/20.png",
-  21: "../images/21.png",
-  22: "../images/22.png",
-  23: "../images/23.png",
+  1: { url: "../images/24.png", attribute: 24 },
+  2: { url: "../images/2.png", attribute: 2 },
+  3: { url: "../images/3.png", attribute: 3 },
+  4: { url: "../images/4.png", attribute: 4 },
+  5: { url: "../images/5.png", attribute: 5 },
+  6: { url: "../images/6.png", attribute: 6 },
+  7: { url: "../images/7.png", attribute: 7 },
+  8: { url: "../images/8.png", attribute: 8 },
+  9: { url: "../images/9.png", attribute: 9 },
+  10: { url: "../images/10.png", attribute: 10 },
+  11: { url: "../images/11.png", attribute: 11 },
+  12: { url: "../images/12.png", attribute: 12 },
+  13: { url: "../images/13.png", attribute: 13 },
+  14: { url: "../images/14.png", attribute: 14 },
+  15: { url: "../images/15.png", attribute: 15 },
+  16: { url: "../images/16.png", attribute: 16 },
+  17: { url: "../images/17.png", attribute: 17 },
+  18: { url: "../images/18.png", attribute: 18 },
+  19: { url: "../images/19.png", attribute: 19 },
+  20: { url: "../images/20.png", attribute: 20 },
+  21: { url: "../images/21.png", attribute: 21 },
+  22: { url: "../images/22.png", attribute: 22 },
+  23: { url: "../images/23.png", attribute: 23 },
   //   24: "../images/24.png",
 };
 
@@ -63,16 +63,25 @@ function creatElementOnGameBoard(deckArr, deckContainerElement) {
     cardFront.classList.add("front-card");
     cardBack.classList.add("back-card");
     cardConainer.appendChild(cardFront);
+    cardBack.style.backgroundImage = `url(${deckObj[idx].url})`;
+    cardBack.setAttribute("idCard", deckObj[idx].attribute);
     cardConainer.appendChild(cardBack);
-    cardBack.style.backgroundImage = `url(${deckObj[idx]})`;
   }
+}
+
+// create different id for each card
+function uniqeID() {
+  const backCardsArray = [...document.querySelectorAll(".back-card")];
+  backCardsArray.forEach((card, idx) => {
+    card.setAttribute("id", idx);
+  });
 }
 
 // Change container class in order to store different amount of cards by game - level
 function addContainerToClassByLevel(deckContainerElement, level) {
   if (levelObj[level] === 12) deckContainerElement.classList.add("easy-lvl");
   else if (levelObj[level] === 16) deckContainerElement.classList.add("normal-lvl");
-  else if (levelObj[level] === 20) deckContainerElemedeckContainerElement.classList.add("back-card");
+  else if (levelObj[level] === 20) deckContainerElement.classList.add("hard-lvl");
 }
 
 // todo : add remove from classlist function when restart game
@@ -85,6 +94,7 @@ export function createGameBoard(deckContainerElement, level) {
   const newArrOfDeck = sliceArrayToLevelAndDoube(level, arrOfdeck);
   shuffleArray(newArrOfDeck);
   creatElementOnGameBoard(newArrOfDeck, deckContainerElement);
+  uniqeID();
 }
 
 //DOM: Create card-container to contain front-card and back-card
