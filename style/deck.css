@@ -3,7 +3,13 @@
   margin: auto;
   width: 75%;
   gap: 1rem;
-  border: solid 1px black;
+  /* border: solid 1px black; */
+}
+
+.proggramer-lvl {
+  /* 6 */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .easy-lvl {
@@ -29,15 +35,21 @@
   height: 10rem;
   perspective: 1000px;
 }
+
 .container-card {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 100%;
   height: 100%;
   margin: auto;
   position: relative;
   transform-style: preserve-3d;
+  border: solid 2px rgba(174, 134, 134, 0.2);
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
   transition: transform 0.6s;
+}
+
+.container-card:hover {
+  border: solid 4px rgba(174, 134, 134, 0.2);
 }
 
 .front-card,
@@ -52,13 +64,18 @@
 }
 .front-card {
   background-image: url("../images/1.png");
+  transition: all 0.5s;
+}
+
+.front-card:hover {
+  cursor: pointer;
+  transform: scale(0.9);
 }
 
 .back-card {
-  /* background-color: aqua; */
   transform: rotateY(180deg);
 }
 
 [idCard="paired"]:active {
-  border: 5px solid transparent;
+  border: 8px solid transparent;
 }

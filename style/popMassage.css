@@ -1,0 +1,46 @@
+.popUp {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* height: 50%; */
+  margin: auto 25%;
+  position: absolute;
+  top: 15%;
+  border: solid 2px black;
+  border-radius: 10px;
+  background: gray;
+  justify-content: center;
+  /* align-items: center; */
+  z-index: 10;
+  font-size: 2rem;
+}
+
+.popUp > * {
+  margin: 1rem;
+}
+.popUp h1 {
+  text-align: center;
+}
+
+.popUp form {
+  font-family: "game";
+}
+
+.popUp input {
+  font-family: "game";
+  font-size: 2rem;
+  width: 10rem;
+}
+
+.popUp select {
+  font-family: "game";
+  height: 2rem;
+}
+
+.popUp button {
+  width: 15rem;
+  margin: 0 auto;
+  font-family: "game";
+  font-size: 2.5rem;
+  cursor: pointer;
+}
