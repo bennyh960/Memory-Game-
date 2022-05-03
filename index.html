@@ -6,11 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/popMassage.css" />
     <link rel="stylesheet" href="./style/data.css" />
     <link rel="stylesheet" href="./style/deck.css" />
   </head>
   <body>
+    <audio id="clickSound">
+      <source src="./sounds/click.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="pairedSound">
+      <source src="./sounds/paired.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="finishSound">
+      <source src="./sounds/finish.mp3" type="audio/mpeg" />
+    </audio>
     <div class="container">
+      <div class="popUp">
+        <h1>Memory Game</h1>
+        <button class="startGame" id="startNewGame" type="submit">START GAME</button>
+        <div id="topUser"></div>
+        <div id="topScore"></div>
+        <form action="">
+          <label for="name">Username &nbsp;: </label>
+          <input type="text" id="name" required />
+          <label for="level">Choose Level</label>
+          <select name="level" id="level" required>
+            <option value="kids" id="kids">Kids</option>
+            <option value="easy" id="easy">Easy</option>
+            <option value="normal" id="normal">Normal</option>
+            <option value="hard" id="hard">Hard</option>
+          </select>
+          <label for="numOfplayers">Players</label>
+          <select name="players" id="players" required>
+            <option value="one" id="one">1</option>
+            <option value="two" id="two">2</option>
+          </select>
+        </form>
+      </div>
       <div id="deck-container">
         <!-- deck card drawed by js in the form of-->
         <!-- card-container class to contain front-card and back-card  -->
@@ -33,9 +65,7 @@
           <div class="small">SCORE</div>
         </div>
         <div>
-          <button id="restart">New-Game</button>
-          <br />
-          <button id="changeView">Change View</button>
+          <button class="startGame" id="restart">New-Game</button>
         </div>
       </div>
     </div>

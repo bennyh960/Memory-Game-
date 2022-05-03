@@ -24,3 +24,9 @@
 .container #display-window > * > .small {
   color: rgb(187, 187, 187);
 }
+
+button {
+  font-family: "game";
+  font-size: 2rem;
+  cursor: pointer;
+}

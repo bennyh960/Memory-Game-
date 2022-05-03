@@ -1,10 +1,6 @@
-// get deck container element "#deck-container"
-//? SpriteSheet : create deck obj {1:[coordX,coordY],2:[coordX,coordY], ....25:[coordX,coordY]} to the each img !! shaul and ravit
-//? Img for each card : create deck obj {1:,2:, ....25:[coordX,coordY]} to the each img !! shaul and ravit
-// get from user "level" easy , noemal , hard (4X3,4X4,4X5) >>> 12,16,20
-// append even num of elements to it with data attribute and coressponding classes
-
+import { animatorObj } from "./animation.js";
 const levelObj = {
+  kids: 6,
   easy: 12,
   normal: 16,
   hard: 20,
@@ -66,6 +62,17 @@ function creatElementOnGameBoard(deckArr, deckContainerElement) {
     cardBack.style.backgroundImage = `url(${deckObj[idx].url})`;
     cardBack.setAttribute("idCard", deckObj[idx].attribute);
     cardConainer.appendChild(cardBack);
+    const animation = [
+      animatorObj.anim1,
+      animatorObj.anim2,
+      animatorObj.anim3,
+      animatorObj.anim4,
+      animatorObj.anim5,
+      animatorObj.anim6,
+    ];
+    const randomIdx = Math.floor(Math.random() * animation.length);
+    cardFront.animate(animation[randomIdx], animatorObj.time);
+    // cardBack.animate(animatorObj.anim6, animatorObj.time);
   }
 }
 
@@ -79,22 +86,29 @@ function uniqeID() {
 
 // Change container class in order to store different amount of cards by game - level
 function addContainerToClassByLevel(deckContainerElement, level) {
-  if (levelObj[level] === 12) deckContainerElement.classList.add("easy-lvl");
-  else if (levelObj[level] === 16) deckContainerElement.classList.add("normal-lvl");
-  else if (levelObj[level] === 20) deckContainerElement.classList.add("hard-lvl");
+  if (levelObj[level] === 12) {
+    deckContainerElement.classList.add("easy-lvl");
+  } else if (levelObj[level] === 16) {
+    deckContainerElement.classList.add("normal-lvl");
+  } else if (levelObj[level] === 20) {
+    deckContainerElement.classList.add("hard-lvl");
+  } else deckContainerElement.classList.add("proggramer-lvl");
 }
 
-// todo : add remove from classlist function when restart game
+// Draw random cards when game start
+export function createGameBoard(deckContainerElement) {
+  const levelButton = document.querySelector("#level");
+  const level = levelButton.options[levelButton.selectedIndex].value;
+  // const level = "proggramer";
+  console.log(level);
+  // ! need to update this level to gamer levels
 
-// new game start
-export function createGameBoard(deckContainerElement, level) {
   const arrOfdeck = Object.keys(deckObj);
   addContainerToClassByLevel(deckContainerElement, level);
   shuffleArray(arrOfdeck);
   const newArrOfDeck = sliceArrayToLevelAndDoube(level, arrOfdeck);
+
   shuffleArray(newArrOfDeck);
   creatElementOnGameBoard(newArrOfDeck, deckContainerElement);
   uniqeID();
 }
-
-//DOM: Create card-container to contain front-card and back-card

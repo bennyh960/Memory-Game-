@@ -1,8 +1,9 @@
-const startTime = new Date().getTime();
+// const startTime = new Date().getTime();
 
 // big function with gameOver
-export function getElpassedTime(timeElementStr) {
+export function getElpassedTime(timeElementStr, startTime) {
   const timeElement = document.querySelector(timeElementStr);
+  timeElement.style.display = "inline";
   const now = new Date().getTime();
   const dis = now - startTime;
 
