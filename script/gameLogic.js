@@ -54,8 +54,7 @@ data.updateDataWindow = function (movesInGame, wrongMoves, gameScore) {
 data.testData = function (e) {
   this.setChosenCards(e);
   if (this.isPair(e)) {
-    const temp = this.moves - this.wrongMoves;
-    this.score += 15 - temp;
+    this.score += 15 - (this.wrongMoves % 9);
   } else if (e.target.parentElement.lastChild.getAttribute("idCard") !== "paired") {
     this.moves % 2 === 1 ? (this.wrongMoves += 1) : "";
   } else {

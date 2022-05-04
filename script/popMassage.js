@@ -9,9 +9,7 @@ export function CheckHighScore() {
   //update current score on display pop up window
   const lastScore = document.getElementById("lastScore");
   // const NameToShow = userName.value ? userName.value !== "" : "Your";
-  lastScore.textContent = `${NamuserName.valueeToShow} Last Score: ${score.textContent} points in ${calcTime(
-    time
-  )} seconds.`;
+  lastScore.textContent = `${userName.value} Last Score: ${score.textContent} points in ${calcTime(time)} seconds.`;
 
   //   console.log(testTop);
   if (parseInt(score.textContent) > testTop) {
