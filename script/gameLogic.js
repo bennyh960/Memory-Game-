@@ -27,7 +27,11 @@ export const data = {
 
 export function update(e) {
   //prevent from data window to flip due to the father is not define in this function so it can be the grandfather container also
-  if (e.target.parentElement.getAttribute("class") === "container-card") {
+  if (
+    e.target.parentElement.getAttribute("class") === "container-card" &&
+    data.firstCard === undefined &&
+    data.secondCard === undefined
+  ) {
     flipCard(e);
     data.testData(e);
     data.updateDataWindow(movesInGame, wrongMoves, gameScore);
@@ -83,8 +87,8 @@ function flipCard(e) {
 //Reset card element to null - Activate with delay of 1 sec
 data.resetChosenCards = function () {
   if (this.firstCard && this.secondCard) {
-    this.firstCard = null;
-    this.secondCard = null;
+    this.firstCard = undefined;
+    this.secondCard = undefined;
   }
 };
 

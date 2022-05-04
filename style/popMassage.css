@@ -6,9 +6,9 @@
   margin: auto 25%;
   position: absolute;
   top: 15%;
-  border: solid 2px black;
+  border: solid 2px rgba(57, 53, 53, 0.637);
   border-radius: 10px;
-  background: gray;
+  background-image: linear-gradient(rgb(62, 194, 154), rgb(88, 184, 88), rgb(110, 52, 52));
   justify-content: center;
   /* align-items: center; */
   z-index: 10;
