@@ -29,8 +29,7 @@ export function update(e) {
   //prevent from data window to flip due to the father is not define in this function so it can be the grandfather container also
   if (
     e.target.parentElement.getAttribute("class") === "container-card" &&
-    data.firstCard === undefined &&
-    data.secondCard === undefined
+    (data.firstCard === undefined || data.secondCard === undefined)
   ) {
     flipCard(e);
     data.testData(e);

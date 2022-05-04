@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./style/popMassage.css" />
     <link rel="stylesheet" href="./style/data.css" />
     <link rel="stylesheet" href="./style/deck.css" />
+    <!-- i have favicon BUG 404 not found and this line solve it  -->
+    <link rel="shortcut icon" href="#" />
   </head>
   <body>
     <audio id="clickSound">
@@ -17,7 +19,7 @@
     <audio id="pairedSound">
       <source src="./sounds/paired.mp3" type="audio/mpeg" />
     </audio>
-    <audio id="finishGame">
+    <audio id="finishSound">
       <source src="./sounds/finish.mp3" type="audio/mpeg" />
     </audio>
     <div class="container">
@@ -26,22 +28,30 @@
         <button class="startGame" id="startNewGame" type="submit">START GAME</button>
         <div id="topUser"></div>
         <div id="topScore"></div>
+
         <form action="">
-          <label for="name">Username &nbsp;: </label>
-          <input type="text" id="name" required />
-          <label for="level">Choose Level</label>
-          <select name="level" id="level" required>
-            <option value="kids" id="kids">Kids</option>
-            <option value="easy" id="easy">Easy</option>
-            <option value="normal" id="normal">Normal</option>
-            <option value="hard" id="hard">Hard</option>
-          </select>
-          <label for="numOfplayers">Players</label>
-          <select name="players" id="players" required>
-            <option value="one" id="one">1</option>
-            <option value="two" id="two">2</option>
-          </select>
+          <div>
+            <label for="name">Username &nbsp;&nbsp;&nbsp;&nbsp;: </label>
+            <input type="text" id="name" required />
+          </div>
+          <div>
+            <label for="level">Choose Level&nbsp;: &nbsp; </label>
+            <select name="level" id="level" required>
+              <option value="kids" id="kids">Kids</option>
+              <option value="easy" id="easy">Easy</option>
+              <option value="normal" id="normal">Normal</option>
+              <option value="hard" id="hard">Hard</option>
+            </select>
+          </div>
+          <div>
+            <label for="numOfplayers">Number of Players</label>
+            <select name="players" id="players" required>
+              <option value="one" id="one">1</option>
+              <option value="two" id="two">2</option>
+            </select>
+          </div>
         </form>
+        <div id="lastScore"></div>
       </div>
       <div id="deck-container">
         <!-- deck card drawed by js in the form of-->

@@ -3,9 +3,10 @@
   display: flex;
   flex-wrap: wrap;
   width: 75%;
-  height: 25%;
+  height: 15%;
   margin: auto;
-  border: 3px solid black;
+  border: 10px solid rgb(151, 177, 125);
+  border-radius: 15px;
   align-items: center;
   justify-content: space-around;
 }
@@ -13,15 +14,16 @@
 .container #display-window > * {
   display: flex;
   flex-direction: column;
-  height: 4rem;
+  /* height: 20%; */
   text-align: center;
   /* border: 1px solid black; */
 }
 
 .container #display-window > * > .big {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
 }
 .container #display-window > * > .small {
+  font-size: 3rem;
   color: rgb(187, 187, 187);
 }
 
