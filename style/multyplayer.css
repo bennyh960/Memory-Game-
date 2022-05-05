@@ -1,0 +1,98 @@
+/* multyplayer p1 */
+.multyplayer {
+  display: none;
+  width: 75%;
+  margin: auto;
+  border: 5px solid gray;
+  border-radius: 1rem;
+  font-size: 3rem;
+  background-color: rgb(60, 255, 0);
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player1 {
+  /* animation: flash 1s ease-in infinite; */
+  text-align: center;
+}
+
+#player2Name {
+  display: none;
+}
+.player2 {
+  /* align-self: ; */
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+/* .singlePlayer > * {
+}
+
+.p1,
+.p2 {
+  display: flex;
+  flex-direction: column;
+}
+.p2 {
+} */
+
+#border2Players {
+  width: 3px;
+  height: 100%;
+  background-color: blueviolet;
+  /* display: none; */
+}
+/* timer copied all from w3c */
+.base-timer {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  /* border: 1px solid black; */
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 0.7rem;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 0.7rem;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./style/popMassage.css" />
     <link rel="stylesheet" href="./style/data.css" />
     <link rel="stylesheet" href="./style/deck.css" />
+    <link rel="stylesheet" href="./style/multyplayer.css" />
     <!-- i have favicon BUG 404 not found and this line solve it  -->
     <link rel="shortcut icon" href="#" />
   </head>
@@ -23,6 +24,8 @@
       <source src="./sounds/finish.mp3" type="audio/mpeg" />
     </audio>
     <div class="container">
+      <!-- adding multyplayer by js -->
+
       <div class="popUp">
         <h1>Memory Game</h1>
         <button class="startGame" id="startNewGame" type="submit">START GAME</button>
@@ -30,9 +33,13 @@
         <div id="topScore"></div>
 
         <form action="">
-          <div>
-            <label for="name">Username &nbsp;&nbsp;&nbsp;&nbsp;: </label>
-            <input type="text" id="name" required />
+          <div id="player1Name">
+            <label for="name">PLAYER 1 &nbsp;&nbsp;&nbsp;: </label>
+            <input type="text" id="name" required placeholder="Player 1 name" />
+          </div>
+          <div id="player2Name">
+            <label for="name2">PLAYER 2 &nbsp;&nbsp;&nbsp;: </label>
+            <input type="text" id="name2" required placeholder="Player 2 name" />
           </div>
           <div>
             <label for="level">Choose Level&nbsp;: &nbsp; </label>
@@ -41,6 +48,7 @@
               <option value="easy" id="easy">Easy</option>
               <option value="normal" id="normal">Normal</option>
               <option value="hard" id="hard">Hard</option>
+              <option value="master" id="master">Master</option>
             </select>
           </div>
           <div>
@@ -57,10 +65,10 @@
         <!-- deck card drawed by js in the form of-->
         <!-- card-container class to contain front-card and back-card  -->
       </div>
-      <div id="display-window">
+      <div id="display-window" class="singlePlayer">
         <div>
           <div class="big" id="timer">0</div>
-          <div class="small">TIME ELAPSED:</div>
+          <div class="small">TIME</div>
         </div>
         <div>
           <div class="big" id="moves">0</div>
@@ -76,6 +84,20 @@
         </div>
         <div>
           <button class="startGame" id="restart">New-Game</button>
+        </div>
+      </div>
+      <!-- =============================== multyPlayer -->
+      <div class="multyplayer">
+        <div class="player1">
+          <h4>PLAYER ONE</h4>
+          <div id="p1Name"></div>
+          <div id="p1Score">0</div>
+        </div>
+        <div id="stoper"></div>
+        <div class="player2">
+          <h4>PLAYER TWO</h4>
+          <div id="p2Name"></div>
+          <div id="p2Score">0</div>
         </div>
       </div>
     </div>

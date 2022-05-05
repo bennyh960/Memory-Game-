@@ -1,5 +1,6 @@
 import { animatorObj } from "./animation.js";
 import { CheckHighScore } from "./popMassage.js";
+import { updatePlayer } from "./multyplayer.js";
 
 // updating html variable
 const movesInGame = document.getElementById("moves");
@@ -19,6 +20,7 @@ export const data = {
   delayClicking: false,
   firstCard: undefined,
   secondCard: undefined,
+  isTrueGuess: false,
 };
 
 // =========================================================================================================================
@@ -33,8 +35,11 @@ export function update(e) {
   ) {
     flipCard(e);
     data.testData(e);
+    updatePlayer(data.moves, data.isTrueGuess);
     data.updateDataWindow(movesInGame, wrongMoves, gameScore);
     isGameComplete() && CheckHighScore();
+    //todo del next line
+    // console.log("Its true guess:", data.isTrueGuess);
   }
 }
 // =========================================================================================================================
@@ -43,7 +48,8 @@ export function update(e) {
 // update html data variable and moves
 data.updateDataWindow = function (movesInGame, wrongMoves, gameScore) {
   this.moves += 1;
-  movesInGame.textContent = this.moves;
+  // this.moves2 += 1;
+  movesInGame.textContent = parseInt(this.moves / 2);
   wrongMoves.textContent = this.wrongMoves;
   gameScore.textContent = Math.max(0, this.score);
 };
@@ -56,7 +62,7 @@ data.testData = function (e) {
   if (this.isPair(e)) {
     this.score += 15 - (this.wrongMoves % 9);
   } else if (e.target.parentElement.lastChild.getAttribute("idCard") !== "paired") {
-    this.moves % 2 === 1 ? (this.wrongMoves += 1) : "";
+    this.moves % 2 === 1 ? (this.wrongMoves += 1) && (this.isTrueGuess = false) : "";
   } else {
     this.moves -= 1;
   }
@@ -64,6 +70,7 @@ data.testData = function (e) {
 
 // Choose clicked card (CSS : back-card class)
 data.setChosenCards = function (event) {
+  // console.log(event.target.parentElement.lastChild, event.target.nextSibling);
   if (event.target.parentElement.lastChild.getAttribute("idCard") === "paired") return;
   if (this.moves % 2 === 0) {
     this.firstCard = event.target.parentElement.lastChild;
@@ -118,6 +125,7 @@ data.isPair = function (e) {
       setAttrAndAnimate(this.firstCard, this.secondCard);
       this.score += 15 - this.wrongMoves;
       this.delayClicking = true;
+      this.isTrueGuess = true;
       pairedSound.play();
       return true;
     }
@@ -141,7 +149,7 @@ data.reset = function (timeEl) {
   this.moves = 0;
   this.wrongMoves = 0;
   this.time = timeEl.textContent;
-  console.log(this.time, this.score);
+  // console.log(this.time, this.score);
   this.score = 0;
 };
 

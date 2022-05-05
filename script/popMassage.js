@@ -1,5 +1,6 @@
 export function CheckHighScore() {
   const userName = document.getElementById("name"); //.value;
+  const userName2 = document.getElementById("name2"); //.value;
   const score = document.getElementById("score"); //.textContent;
   const topUser = document.getElementById("topUser"); //.textContent;
   const topScore = document.getElementById("topScore"); //.textContent;
@@ -9,8 +10,20 @@ export function CheckHighScore() {
   //update current score on display pop up window
   const lastScore = document.getElementById("lastScore");
   // const NameToShow = userName.value ? userName.value !== "" : "Your";
-  lastScore.textContent = `${userName.value} Last Score: ${score.textContent} points in ${calcTime(time)} seconds.`;
-
+  if (document.querySelector("#players").value === "one")
+    lastScore.textContent = `${userName.value} Last Score: ${score.textContent} points in ${calcTime(time)} seconds.`;
+  else {
+    const p1Score = parseInt(document.getElementById("p1Score").textContent);
+    const p2Score = parseInt(document.getElementById("p2Score").textContent);
+    if (p1Score > p2Score) {
+      lastScore.textContent = `${userName.value} is the winner! `;
+    } else if (p1Score < p2Score) {
+      lastScore.textContent = `${userName2.value} is the winner! `;
+    } else {
+      lastScore.textContent = `Its a draw! `;
+    }
+  }
+  time.style.color = "transparent";
   //   console.log(testTop);
   if (parseInt(score.textContent) > testTop) {
     const topScoreToBrowswer = score.textContent;

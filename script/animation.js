@@ -41,8 +41,13 @@ export const animatorObj = {
     { top: `${Math.floor(Math.random() * 20)}rem` },
     { left: `${Math.floor(Math.random() * 10)}rem` },
   ],
+  anim7: [{ background: "rgba(6, 240, 103, 0.948)" }, { background: "rgba(250, 20, 43, 0)" }],
   time: {
     duration: 1000,
     iterations: 1,
+  },
+  time2: {
+    duration: 1000,
+    iterations: 10,
   },
 };

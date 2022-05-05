@@ -15,8 +15,9 @@ html {
 }
 .container {
   display: flex;
+
   flex-direction: column;
-  width: 100vw;
+  /* width: 100vmin; */
   height: 100vh;
   border: 3px solid black;
   background-image: linear-gradient(rgb(158, 119, 119), gray, green);
@@ -29,7 +30,7 @@ html {
 }
 @media screen and (max-width: 450px) {
   html {
-    font-size: 5px;
+    font-size: 6px;
   }
 }
 

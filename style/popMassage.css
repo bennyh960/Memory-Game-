@@ -1,9 +1,10 @@
 .popUp {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  height: 75%;
-  margin: auto 20%;
+  padding: 3rem;
+  width: 65vw;
+  /* height: 55%; */
+  margin: auto 17.5vw;
   position: absolute;
   top: 15%;
   border: solid 2px rgba(57, 53, 53, 0.637);

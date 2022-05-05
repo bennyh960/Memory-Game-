@@ -4,6 +4,7 @@ const levelObj = {
   easy: 12,
   normal: 16,
   hard: 20,
+  master: 24,
 };
 
 export const deckObj = {
@@ -92,7 +93,9 @@ function addContainerToClassByLevel(deckContainerElement, level) {
     deckContainerElement.classList.add("normal-lvl");
   } else if (levelObj[level] === 20) {
     deckContainerElement.classList.add("hard-lvl");
-  } else deckContainerElement.classList.add("proggramer-lvl");
+  } else if (levelObj[level] === 24) {
+    deckContainerElement.classList.add("master-lvl");
+  } else deckContainerElement.classList.add("proggramer-lvl"); //kids level
 }
 
 // Draw random cards when game start

@@ -1,20 +1,29 @@
 import { getElpassedTime } from "./timer.js";
 import { createGameBoard } from "./decks.js";
-import { update, isGameComplete } from "./gameLogic.js";
+import { update } from "./gameLogic.js";
 import { updateBoard } from "./popMassage.js";
+
+import { chooseNumOfPlayers } from "./multyplayer.js";
 
 const startGame = document.querySelectorAll(".startGame");
 const deckContainerElement = document.getElementById("deck-container");
 const topUser = document.getElementById("topUser"); //.textContent;
 const topScore = document.getElementById("topScore");
+const time = document.getElementById("timer");
+const numOfPlayers = document.querySelector("#players");
+
 updateBoard(topScore, topUser);
 let timer;
+
+document.addEventListener("mouseover", () => {
+  verifyUserName();
+});
 
 startGame.forEach((button) => {
   button.addEventListener("click", (e) => {
     // Check if game completeed and reset time each new-game
     (endGame2() || endGame3(e)) && clearInterval(timer);
-
+    time.style.color = "black";
     document.querySelector(".popUp").style.display = "none";
     // console.log(document.getElementById("name").value);
 
@@ -48,4 +57,18 @@ function endGame3(e) {
     return true;
   }
   return false;
+}
+
+//================================
+//
+
+numOfPlayers.addEventListener("click", (e) => {
+  chooseNumOfPlayers();
+});
+
+// disable/enable btn
+function verifyUserName() {
+  // console.log(document.querySelector("#p1Name"));
+  if (document.querySelector("#name").value === "") document.querySelector("#startNewGame").disabled = true;
+  else document.querySelector("#startNewGame").disabled = false;
 }

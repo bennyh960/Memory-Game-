@@ -1,14 +1,16 @@
 /* !Dont modified */
 .container #display-window {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   width: 75%;
   height: 15%;
   margin: auto;
-  border: 10px solid rgb(151, 177, 125);
+  border: 5px solid rgba(151, 177, 125, 0.621);
   border-radius: 15px;
   align-items: center;
   justify-content: space-around;
+  /* display: none; */
 }
 
 .container #display-window > * {
@@ -31,4 +33,7 @@ button {
   font-family: "game";
   font-size: 2rem;
   cursor: pointer;
+  background-color: gold;
+  border-radius: 5px;
+  padding: 0.3rem;
 }
