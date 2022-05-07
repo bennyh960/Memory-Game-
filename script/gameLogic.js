@@ -35,7 +35,6 @@ export function update(e) {
   ) {
     flipCard(e);
     data.testData(e);
-    updatePlayer(data.moves, data.isTrueGuess);
     data.updateDataWindow(movesInGame, wrongMoves, gameScore);
     isGameComplete() && CheckHighScore();
     //todo del next line
@@ -54,9 +53,7 @@ data.updateDataWindow = function (movesInGame, wrongMoves, gameScore) {
   gameScore.textContent = Math.max(0, this.score);
 };
 
-// A. set chosen cards
-// B. isPair test activation
-// C. Prevent from visible card to change moves and wrong moves
+//Call 2 function and analyse data and update score
 data.testData = function (e) {
   this.setChosenCards(e);
   if (this.isPair(e)) {
@@ -70,15 +67,12 @@ data.testData = function (e) {
 
 // Choose clicked card (CSS : back-card class)
 data.setChosenCards = function (event) {
-  // console.log(event.target.parentElement.lastChild, event.target.nextSibling);
   if (event.target.parentElement.lastChild.getAttribute("idCard") === "paired") return;
   if (this.moves % 2 === 0) {
     this.firstCard = event.target.parentElement.lastChild;
-    // this.firstCard.setAttribute("data-open", "true");
   }
   if (this.moves % 2 === 1) {
     this.secondCard = event.target.parentElement.lastChild;
-    // this.secondCard.setAttribute("data-open", "true");
   }
 };
 
@@ -105,7 +99,7 @@ data.flipAgain = function (e) {
       this.secondCard.parentElement.style.transform = "rotateY(360deg)";
     }
   } catch (error) {
-    console.log("Error: Its realy hard to cancle event listner on child when it activated from father container");
+    console.log("Error: this error has solved already");
   } finally {
   }
 };
@@ -116,6 +110,7 @@ data.isPair = function (e) {
     setTimeout(() => {
       this.delayClicking ? (this.delayClicking = false) : this.flipAgain(e);
       this.resetChosenCards();
+      updatePlayer(data.moves, data.isTrueGuess); //for 2 players
     }, 1000);
 
     if (
@@ -167,6 +162,8 @@ export function isGameComplete() {
     popWindow.style.display = "flex";
     document.querySelector("#timer").style.display = "none";
     document.getElementById("startNewGame").textContent = "Play Again";
+    // document.getElementById("p1Score").textContent = "0";
+    // document.getElementById("p2Score").textContent = "0";
 
     data.reset(totalTime);
     return true;

@@ -1,4 +1,4 @@
-import { startTimer } from "./timer.js";
+import { timer1, timer2 } from "./timer.js";
 import { animatorObj } from "./animation.js";
 
 const timerPos = document.getElementById("stoper");
@@ -19,33 +19,44 @@ const multyObj = {
   p2s: 0,
 };
 
+//this function invoked when ispair interval work
 export function updatePlayer(turn, isTrueGuess) {
-  startTimer();
-
-  // if (isTrueGuess) {
-  //   multyObj.changeDir = 1;
-  // }
   turn = parseInt(turn / 2); //turn 0 = 1 due to parseint
-  // console.log(turn);
-
-  if (turn % 2 === 1 - multyObj.changeDir) {
-    multyplayer.lastChild.previousElementSibling.animate(animatorObj.anim7, animatorObj.time2);
-    console.log("player 1 turn", isTrueGuess);
+  if (turn % 2 === 1) {
     if (isTrueGuess) multyObj.p1s += 15;
-  } else if (turn % 2 === 0 + multyObj.changeDir) {
+    // multyplayer.lastChild.previousElementSibling.animate(animatorObj.anim7, animatorObj.time2);
+    clearInterval(timer2);
+    timer1;
+    multyplayer.lastChild.previousElementSibling.style.border = "3px solid green";
+    multyplayer.lastChild.previousElementSibling.previousElementSibling.previousElementSibling.style.border =
+      "3px solid transparent";
+    console.log("player 1 turn", isTrueGuess);
+    // startTimer(true);
+  } else if (turn % 2 === 0) {
+    if (isTrueGuess) multyObj.p2s += 15;
+    multyplayer.lastChild.previousElementSibling.previousElementSibling.previousElementSibling.style.border =
+      "3px solid green";
+    // startTimer(true);
+    clearInterval(timer1);
+    timer2;
+    //p1
+    multyplayer.lastChild.previousElementSibling.style.border = "3px solid transparent";
+    // multyplayer.lastChild.previousElementSibling.previousElementSibling.previousElementSibling.animate(
+    //   animatorObj.anim7,
+    //   animatorObj.time2
+    // );
     console.log("player 2 turn", isTrueGuess);
-
-    multyplayer.lastChild.previousElementSibling.previousElementSibling.previousElementSibling.animate(
-      animatorObj.anim7,
-      animatorObj.time2
-    );
-    if (isTrueGuess) multyObj.p2 += 15;
   }
 
-  if (isTrueGuess) {
-    multyObj.changeDir = 0;
+  const isEndGame = [...document.querySelectorAll(".back-card")].every((card) => {
+    return card.getAttribute("idCard") === "paired";
+  });
+
+  if (isEndGame) {
+    multyObj.p1s = 0;
+    multyObj.p2s = 0;
   }
-  // }
+
   p1score.textContent = multyObj.p1s;
   p2score.textContent = multyObj.p2s;
 }

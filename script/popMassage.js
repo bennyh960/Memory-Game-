@@ -31,15 +31,6 @@ export function CheckHighScore() {
     localStorage.clear();
     storeTopVariable(topScoreToBrowswer, topUserToBrowswer);
     updateBoard(topScore, topUser);
-
-    console.log(
-      "should store ",
-      topScoreToBrowswer,
-      "as top score due to ",
-      score.textContent,
-      "is higher then",
-      localStorage.getItem("TopScore")
-    );
   }
 }
 
@@ -58,4 +49,16 @@ function calcTime(timeElement) {
 
   if (calculatedTime.length > 1) return parseInt(calculatedTime[0]) * 60 + parseInt(calculatedTime[1]);
   return parseInt(calculatedTime[0]);
+}
+
+// disable/enable btn
+export function verifyUserName() {
+  // console.log(document.querySelector("#p1Name"));
+  if (document.querySelector("#name").value === "") {
+    document.querySelector("#startNewGame").disabled = true;
+    document.querySelector("#startNewGame").classList.toggle("verifyUserName");
+  } else {
+    document.querySelector("#startNewGame").disabled = false;
+    document.querySelector("#startNewGame").classList.toggle("verifyUserName");
+  }
 }

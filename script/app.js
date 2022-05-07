@@ -1,7 +1,7 @@
 import { getElpassedTime } from "./timer.js";
 import { createGameBoard } from "./decks.js";
 import { update } from "./gameLogic.js";
-import { updateBoard } from "./popMassage.js";
+import { updateBoard, verifyUserName } from "./popMassage.js";
 
 import { chooseNumOfPlayers } from "./multyplayer.js";
 
@@ -65,10 +65,3 @@ function endGame3(e) {
 numOfPlayers.addEventListener("click", (e) => {
   chooseNumOfPlayers();
 });
-
-// disable/enable btn
-function verifyUserName() {
-  // console.log(document.querySelector("#p1Name"));
-  if (document.querySelector("#name").value === "") document.querySelector("#startNewGame").disabled = true;
-  else document.querySelector("#startNewGame").disabled = false;
-}

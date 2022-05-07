@@ -92,19 +92,43 @@ function onTimesUp() {
   clearInterval(timerInterval);
 }
 
-export function startTimer() {
-  timerInterval = setInterval(() => {
-    timePassed = timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
-    document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
-    setCircleDasharray();
-    setRemainingPathColor(timeLeft);
+export const timer1 = setInterval(() => {
+  timePassed += 1;
+  timeLeft = TIME_LIMIT - timePassed;
+  document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+  setCircleDasharray();
+  setRemainingPathColor(timeLeft);
 
-    if (timeLeft === 0) {
-      onTimesUp();
-    }
-  }, 1000);
-}
+  if (timeLeft === 0) {
+    onTimesUp();
+  }
+}, 1000);
+
+export const timer2 = setInterval(() => {
+  timePassed += 1;
+  timeLeft = TIME_LIMIT - timePassed;
+  document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+  setCircleDasharray();
+  setRemainingPathColor(timeLeft);
+
+  if (timeLeft === 0) {
+    onTimesUp();
+  }
+}, 1000);
+
+// export function startTimer() {
+//   timerInterval = setInterval(() => {
+//     timePassed = timePassed += 1;
+//     timeLeft = TIME_LIMIT - timePassed;
+//     document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+//     setCircleDasharray();
+//     setRemainingPathColor(timeLeft);
+
+//     if (timeLeft === 0) {
+//       onTimesUp();
+//     }
+//   }, 1000);
+// }
 
 function formatTime(time) {
   const minutes = Math.floor(time / 60);

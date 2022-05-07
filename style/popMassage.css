@@ -56,4 +56,28 @@
   font-family: "game";
   font-size: 2.5rem;
   cursor: pointer;
+  position: relative;
+}
+
+.verifyUserName:hover::before {
+  content: "Please enter username";
+  padding: 0 3px;
+  background-color: bisque;
+  position: absolute;
+  border: rgb(88, 184, 88) solid 2px;
+  top: -2rem;
+  left: -50%;
+  width: 25rem;
+  color: black;
+  font-size: 1.5rem;
+  border-radius: 3px;
+}
+.verifyUserName:hover::after {
+  content: "";
+  position: absolute;
+  top: -8%;
+  left: 46%;
+  /* bottom: 0rem; */
+  border: 5px solid;
+  border-color: bisque transparent transparent transparent;
 }
