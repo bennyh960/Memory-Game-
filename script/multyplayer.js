@@ -30,7 +30,7 @@ export function updatePlayer(turn, isTrueGuess) {
     multyplayer.lastChild.previousElementSibling.style.border = "3px solid green";
     multyplayer.lastChild.previousElementSibling.previousElementSibling.previousElementSibling.style.border =
       "3px solid transparent";
-    console.log("player 1 turn", isTrueGuess);
+    // console.log("player 1 turn", isTrueGuess);
     // startTimer(true);
   } else if (turn % 2 === 0) {
     if (isTrueGuess) multyObj.p2s += 15;
@@ -45,7 +45,7 @@ export function updatePlayer(turn, isTrueGuess) {
     //   animatorObj.anim7,
     //   animatorObj.time2
     // );
-    console.log("player 2 turn", isTrueGuess);
+    // console.log("player 2 turn", isTrueGuess);
   }
 
   const isEndGame = [...document.querySelectorAll(".back-card")].every((card) => {

@@ -157,16 +157,14 @@ export function isGameComplete() {
   });
 
   if (isEndGame) {
-    // console.log("game end");
     finishGame.play();
     popWindow.style.display = "flex";
     document.querySelector("#timer").style.display = "none";
     document.getElementById("startNewGame").textContent = "Play Again";
-    // document.getElementById("p1Score").textContent = "0";
-    // document.getElementById("p2Score").textContent = "0";
-
     data.reset(totalTime);
+    console.log("game finished");
     return true;
   }
+  console.log("game is not finished");
   return false;
 }

@@ -24,7 +24,7 @@ export function CheckHighScore() {
     }
   }
   time.style.color = "transparent";
-  //   console.log(testTop);
+
   if (parseInt(score.textContent) > testTop) {
     const topScoreToBrowswer = score.textContent;
     const topUserToBrowswer = userName.value;
@@ -53,7 +53,6 @@ function calcTime(timeElement) {
 
 // disable/enable btn
 export function verifyUserName() {
-  // console.log(document.querySelector("#p1Name"));
   if (document.querySelector("#name").value === "") {
     document.querySelector("#startNewGame").disabled = true;
     document.querySelector("#startNewGame").classList.toggle("verifyUserName");
