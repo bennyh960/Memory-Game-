@@ -19,6 +19,20 @@ document.addEventListener("mouseover", () => {
   verifyUserName();
 });
 
+//mute btn //!not working yet
+const muteBtn = document.querySelector(".audioMute");
+const audio = document.querySelector(".audio");
+muteBtn.addEventListener("click", () => {
+  if (audio.mute == false) {
+    document.querySelector(".audioMute").style.backgroundPosition = "0";
+    audio.mute = true;
+    // document.querySelector("#clickSound").mute = true;
+  } else {
+    document.querySelector(".audioMute").style.backgroundPosition = "-2.4rem";
+    audio.mute = false;
+  }
+});
+
 startGame.forEach((button) => {
   button.addEventListener("click", (e) => {
     // Check if game completeed and reset time each new-game

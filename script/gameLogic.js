@@ -10,6 +10,7 @@ const totalTime = document.getElementById("timer");
 const clickSound = document.getElementById("clickSound");
 const pairedSound = document.getElementById("pairedSound");
 const finishGame = document.getElementById("finishSound");
+// const audio = document.getElementsByClassName("audio");
 
 // store game data and functions
 export const data = {
