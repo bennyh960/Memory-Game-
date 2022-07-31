@@ -20,7 +20,11 @@ html {
   /* width: 100vmin; */
   height: 100vh;
   border: 3px solid black;
-  background-image: linear-gradient(rgb(158, 119, 119), gray, green);
+  /* background-image: linear-gradient(rgb(158, 119, 119), gray, green); */
+  background-image: url("../images/bg/bg5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
 }
 
 @media screen and (max-width: 650px) {

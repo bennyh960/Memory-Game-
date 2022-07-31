@@ -6,9 +6,10 @@
   border: 5px solid gray;
   border-radius: 1rem;
   font-size: 3rem;
-  background-color: rgb(60, 255, 0);
+  /* background-color: rgb(60, 255, 0); */
   justify-content: space-around;
   align-items: center;
+  background-image: linear-gradient(rgb(62, 194, 154), rgb(88, 184, 88), rgb(110, 52, 52));
 }
 
 .player1 {

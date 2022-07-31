@@ -34,6 +34,8 @@ export function CheckHighScore() {
   }
 }
 
+
+
 function storeTopVariable(str1, str2) {
   localStorage.setItem("TopScore", str1);
   localStorage.setItem("TopUser", str2);

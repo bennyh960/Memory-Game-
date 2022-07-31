@@ -1,6 +1,7 @@
 import { animatorObj } from "./animation.js";
 import { CheckHighScore } from "./popMassage.js";
 import { updatePlayer } from "./multyplayer.js";
+import { changeBG } from "./changeBg.js";
 
 // updating html variable
 const movesInGame = document.getElementById("moves");
@@ -22,6 +23,7 @@ export const data = {
   firstCard: undefined,
   secondCard: undefined,
   isTrueGuess: false,
+  bg_num: 0,
 };
 
 // =========================================================================================================================
@@ -43,6 +45,7 @@ export function update(e) {
   }
 }
 // =========================================================================================================================
+
 // =========================================================================================================================
 
 // update html data variable and moves

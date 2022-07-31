@@ -67,6 +67,8 @@
 .front-card {
   background-image: url("../images/1.png");
   transition: all 0.5s;
+  /* border-radius: 3px; */
+  /* border: 1px solid black; */
 }
 
 .front-card:hover {
